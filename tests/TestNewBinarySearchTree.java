@@ -89,5 +89,8 @@ public class TestNewBinarySearchTree {
         nbst.insert(170);
         Assert.assertEquals(170, nbst.lookup(170).getValue());
         Assert.assertEquals(7, nbst.getNumberOfNodes());
+        nbst.remove(234);
+        Assert.assertNull(nbst.lookup(234));
+        Assert.assertEquals(7, nbst.getNumberOfNodes());
     }
 }
