@@ -44,10 +44,6 @@ public class NewBinarySearchTree {
         return null;
     }
 
-    // does this node match the value
-    // if less, move left. if higher move right
-    // if match found update pointer of previous to pointer of right node
-
     public void remove(int value) {
         if (root == null) {
             return;
