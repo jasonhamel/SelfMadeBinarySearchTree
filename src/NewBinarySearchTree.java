@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class NewBinarySearchTree {
     private int numberOfNodes;
     private Node root;
@@ -104,6 +106,26 @@ public class NewBinarySearchTree {
                 }
                 numberOfNodes--;
                 return;
+            }
+        }
+    }
+
+    public void breadthFirstSearch() {
+        Node traversalNode = this.root;
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Node> queue = new ArrayList<>();
+        queue.add(traversalNode);
+
+        while (queue.size() > 0) {
+            traversalNode = queue.get(0);
+            queue.remove(0);
+            list.add(traversalNode.getValue());
+
+            if (traversalNode.getLeft() != null) {
+                queue.add(traversalNode.getLeft());
+            }
+            if (traversalNode.getRight() != null) {
+                queue.add(traversalNode.getRight());
             }
         }
     }
