@@ -130,6 +130,51 @@ public class NewBinarySearchTree {
         }
     }
 
+    public ArrayList<Integer> dfsInOrder() {
+        return traverseInOrder(this.root, new ArrayList<>());
+    }
+
+    public ArrayList<Integer> dfsPostOrder() {
+        return traversePostOrder(this.root, new ArrayList<>());
+    }
+
+    public ArrayList<Integer> dfsPreOrder() {
+        return traversePreOrder(this.root, new ArrayList<>());
+    }
+
+    public ArrayList<Integer> traverseInOrder(Node traversalNode, ArrayList<Integer> list) {
+        if (traversalNode.getLeft() != null) {
+            traverseInOrder(traversalNode.getLeft(), list);
+        }
+        list.add(traversalNode.getValue());
+        if(traversalNode.getRight() != null) {
+            traverseInOrder(traversalNode.getRight(), list);
+        }
+        return list;
+    }
+
+    public ArrayList<Integer> traversePostOrder(Node traversalNode, ArrayList<Integer> list) {
+        if (traversalNode.getLeft() != null) {
+            traversePostOrder(traversalNode.getLeft(), list);
+        }
+        if (traversalNode.getRight() != null) {
+            traversePostOrder(traversalNode.getRight(), list);
+        }
+        list.add(traversalNode.getValue());
+        return list;
+    }
+
+    public ArrayList<Integer> traversePreOrder(Node traversalNode, ArrayList<Integer> list) {
+        list.add((traversalNode.getValue()));
+        if (traversalNode.getLeft() != null) {
+            traversePreOrder(traversalNode.getLeft(), list);
+        }
+        if (traversalNode.getRight() != null) {
+            traversePreOrder(traversalNode.getRight(), list);
+        }
+        return list;
+    }
+
     private Node attemptAdd(Node traversalNode, Node toAdd) {
         if (traversalNode == null) {
             traversalNode = toAdd;
